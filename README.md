@@ -1,4 +1,4 @@
-# intern /https://www.vlsisystemdesign.com/vsdsquadronmini/
+# intern/[vsdsquadron-mini-internship](https://github.com/banu0734/intern.git)
 # Opening and writting program in terminal window.
 writing a C programming code to count from 1 to n.
 initializing and creating a leafpad named assignment1
