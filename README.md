@@ -1,3 +1,5 @@
+# banushree/[vsdsquadron-mini-internship](https://github.com/banu0734/intern.git)
+# Task-1
 # Opening and writting program in terminal window.
 writing a C programming code to count from 1 to n.
 initializing and creating a leafpad named assignment1
