@@ -296,3 +296,80 @@ int main() {
 ![task2-9r](https://github.com/banu0734/intern-vsds-quadron-mini-internship/assets/173624112/2bbaeedc-320b-4b5d-9035-ac26bc79edb6)
 
 ![task2-10r](https://github.com/banu0734/intern-vsds-quadron-mini-internship/assets/173624112/18aa9ea4-b06c-4eb8-bcc6-08ce800a1dd4)
+
+# TASK-3
+
+## SPIKE Simulation and observation with -O1 and -Ofast. Upload snapshot of compiled C Code, RISC-V Objdmp with above options on your GitHub repo
+
+![task3-1](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/aa4a7cb4-3c2c-41e0-8ab8-7080997bcc43)
+
+*This image shows a terminal window in an Ubuntu operating system with a code snippet and some terminal commands executed.*
+
+## Terminal Commands:
+
+### riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o task2.0 task2.c
+    *This command compiles the C code (task2.c) using the riscv64-unknown-elf-gcc compiler for a RISC-V 64-bit architecture.
+    *-O1 is a compiler optimization level.
+    *-mabi=lp64 specifies the ABI (Application Binary Interface) used.
+    *-march=rv64i specifies the target architecture (RISC-V 64-bit).
+    *-o task2.0 specifies the output file name (task2.0).
+### ls -ltr task2.0
+
+This command lists the details of the task2.0 file in long format, sorted by modification time in reverse order.
+
+![task3-2](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/b4c3a766-461f-4835-a74c-ee9c619ef247)
+
+*The images show a terminal window with disassembled code, most likely from a RISC-V assembly program, along with a calculator application performing hexadecimal calculations.*
+
+![task3-3](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/1b0a5f15-8799-4bd3-bb59-d134ce733e92)
+
+### Calculator Application:
+
+    *The calculator is being used in programming mode to perform hexadecimal arithmetic.
+    *10314 - 102D8 = 3C: This subtraction calculates the difference between the addresses 10314 and 102D8, which equals 3C in hexadecimal.
+    *3C ÷ 4 = F: This division calculates 3C divided by 4, which equals F in hexadecimal.
+
+These disassembly snippets and calculations indicate the process of analyzing and manipulating low-level assembly code, likely for debugging or reverse engineering purposes. The use of the calculator in hexadecimal mode is common in such tasks to understand address offsets and instruction lengths.
+## Same Operation in -Ofast optimization level
+
+![task3-4](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/f30c612f-3da2-4c8c-90f3-5405c49b594a)
+
+### If the code were compiled with the -Ofast optimization level, it would mean that the compiler uses the highest optimization level available, including aggressive optimizations that might break strict compliance with some language standards but aim for maximum performance.
+
+### Terminal Command:
+
+    *riscv64-unknown-elf-gcc -Ofast -mabi=lp64 -march=rv64i -o task2.0 task2.c
+    *-Ofast is used instead of -O1.
+    *This enables all -O3 optimizations and more, disregarding strict standards compliance in favor of performance.
+
+### Explanation:
+
+
+    *riscv64-unknown-elf-gcc: The compiler use
+    *-mabi=lp64: Specifies the ABI.
+    *-march=rv64i: Specifies the target architecture.
+    *-o task2.0: Specifies the output file name.
+    
+### Effects of -Ofast Optimization:
+
+More Aggressive Optimizations: The -Ofast option enables more aggressive optimizations compared to -O1.
+
+### Impact on Performance:
+
+* In general, -Ofast should produce faster executables compared to -O1, as it applies more optimizations.
+* This can be especially beneficial in performance-critical applications like an elevator control system where quick response times are crucial.
+  
+![task3-5](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/07ead424-f568-4a48-86c1-1449eeaa1316)
+
+* When the code is compiled with the -Ofast optimization flag, it generally means that the compiler will apply aggressive optimizations to make the code run as fast as possible. This can result in significant changes in the structure and content of the generated assembly code compared to a non-optimized or less-optimized build.
+
+* Let's analyze the main function with the starting address at 100b0 and the next instruction address at 10108 in an -Ofast optimized build.
+  
+![task3-6](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/e53a12e3-428d-472f-8910-57e0f902cf5b)
+
+### Address Calculation
+* The second image suggests using hexadecimal arithmetic to determine instruction addresses. For instance:
+
+* If main starts at 100b0, and the next significant block starts at 10108, the difference (10108 - 100b0) is 58 (in hex).
+Dividing 58 by 4 gives 16 (in hex), which means there are 22 (decimal) instructions between these points.
+
