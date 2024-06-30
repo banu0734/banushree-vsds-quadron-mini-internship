@@ -373,3 +373,260 @@ More Aggressive Optimizations: The -Ofast option enables more aggressive optimiz
 * If main starts at 100b0, and the next significant block starts at 10108, the difference (10108 - 100b0) is 58 (in hex).
 Dividing 58 by 4 gives 16 (in hex), which means there are 22 (decimal) instructions between these points.
 
+# TASK-4
+
+## "Identify various RISC-V instruction type (R, I, S, B, U, J) and exact 32-bit instruction code in the instruction type format for below RISC-V instructions 
+ADD r6, r2, r1
+SUB r7, r1, r2
+AND r8, r1, r3
+OR r9, r2, r5
+XOR r10, r1, r4
+SLT r11, r2, r4
+ADDI r12, r4, 5
+SW r3, r1, 2
+SRL r16, r14, r2
+BNE r0, r1, 20
+BEQ r0, r0, 15
+LW r13, r1, 2
+SLL r15, r1, r2
+
+Upload the 32-bit pattern on Github"
+
+## Detailed Explanation of RISC-V Instruction Types:
+
+The RISC-V architecture supports several types of instructions, each with a specific format for encoding the instruction fields. The primary types are R, I, S, B, U, and J. Here's a detailed breakdown of each type, including the fields they use and their bit positions within a 32-bit instruction.
+
+### 1. R-Type Instructions
+
+R-type instructions are used for register-register operations.
+
+* Format: funct7 rs2 rs1 funct3 rd opcode
+* Bit positions: [31:25] [24:20] [19:15] [14:12] [11:7] [6:0]
+
+| Field	| Bits | Description |
+| --- | --- | --- |
+| opcode	| 7	| Specifies the operation type (e.g., 0110011 for R-type) |
+| rd	| 5	| Destination register |
+| funct3	| 3 |	Operation modifier |
+| rs1 |	5	| First source register |
+| rs2 |	5	| Second source register |
+| funct7 |	7 |	Operation modifier |
+
+### 2. I-Type Instructions
+
+I-type instructions are used for immediate operations, load operations, and some system instructions.
+
+* Format: imm[11:0] rs1 funct3 rd opcode
+* Bit positions: [31:20] [19:15] [14:12] [11:7] [6:0]
+  
+| Field |	Bits | Description |
+| --- | --- | --- |
+| opcode |	7 | Specifies the operation type (e.g., 0010011 for arithmetic immediates) |
+| rd |	5 |	Destination register |
+| funct3 |	3 |	Operation modifier |
+| rs1 |	5 |	Source register |
+| imm |	12 |	Immediate value |
+
+### 3. S-Type Instructions
+
+S-type instructions are used for store operations.
+
+* Format: imm[11:5] rs2 rs1 funct3 imm[4:0] opcode
+* Bit positions: [31:25] [24:20] [19:15] [14:12] [11:7] [6:0]
+  
+| Field |	Bits |	Description |
+| --- | --- | --- |
+|opcode |	7	 |Specifies the operation type (e.g., 0100011 for stores) |
+| imm |	7 + 5	| Immediate value split into two parts (imm[11:5] and imm[4:0]) |
+| funct3 |	3	| Operation modifier |
+| rs1	| 5	| Base register |
+| rs2	| 5	| Source register |
+
+### 4. B-Type Instructions
+
+B-type instructions are used for conditional branch operations.
+
+* Format: imm[12] imm[10:5] rs2 rs1 funct3 imm[4:1] imm[11] opcode
+* Bit positions: [31] [30:25] [24:20] [19:15] [14:12] [11:8] [7] [6:0]
+  
+| Field | 	Bits |	Description |
+| --- | --- | --- |
+| opcode |	7	| Specifies the operation type (e.g., 1100011 for branches) |
+| imm |	1 + 6 + 4 + 1	| Immediate value split into four parts |
+| funct3 |	3	| Operation modifier |
+| rs1	| 5 | 	First source register |
+| rs2	| 5	| Second source register |
+
+### 5. U-Type Instructions
+
+U-type instructions are used for upper immediate operations.
+
+* Format: imm[31:12] rd opcode
+* Bit positions: [31:12] [11:7] [6:0]
+  
+| Field |	Bits |	Description |
+| --- | --- | --- |
+| opcode |	7	| Specifies the operation type (e.g., 0110111 for LUI) |
+| rd |	5	| Destination register |
+| imm	| 20	| Immediate value (upper 20 bits) |
+
+### 6. J-Type Instructions
+
+J-type instructions are used for jump operations.
+
+* Format: imm[20] imm[10:1] imm[11] imm[19:12] rd opcode
+* Bit positions: [31] [30:21] [20] [19:12] [11:7] [6:0]
+
+| Field	| Bits |	Description |
+| --- | --- | --- |
+| opcode	| 7 | 	Specifies the operation type (e.g., 1101111 for jumps) |
+| imm	| 1 + 10 + 1 + 8 |	Immediate value split into four parts |
+| rd	| 5 |	Destination register |
+
+## exact 32-bit instruction code in the instruction type format
+
+### R-Type Instructions
+
+1. ADD r6, r2, r1
+
+* Opcode: 0110011
+* Funct3: 000
+* Funct7: 0000000
+* rs1: 00010 (r2)
+* rs2: 00001 (r1)
+* rd: 00110 (r6)
+* Instruction: 0000000 00001 00010 000 00110 0110011
+* Hexadecimal: 0x006101b3
+  
+2. SUB r7, r1, r2
+
+* Opcode: 0110011
+* Funct3: 000
+* Funct7: 0100000
+* rs1: 00001 (r1)
+* rs2: 00010 (r2)
+* rd: 00111 (r7)
+* Instruction: 0100000 00010 00001 000 00111 0110011
+* Hexadecimal: 0x406081b3
+  
+3. AND r8, r1, r3
+
+* Opcode: 0110011
+* Funct3: 111
+* Funct7: 0000000
+* rs1: 00001 (r1)
+* rs2: 00011 (r3)
+* rd: 01000 (r8)
+* Instruction: 0000000 00011 00001 111 01000 0110011
+* Hexadecimal: 0x003081b3
+  
+4. OR r9, r2, r5
+
+* Opcode: 0110011
+* Funct3: 110
+* Funct7: 0000000
+* rs1: 00010 (r2)
+* rs2: 00101 (r5)
+* rd: 01001 (r9)
+* Instruction: 0000000 00101 00010 110 01001 0110011
+* Hexadecimal: 0x005101b3
+
+5. XOR r10, r1, r4
+
+* Opcode: 0110011
+* Funct3: 100
+* Funct7: 0000000
+* rs1: 00001 (r1)
+* rs2: 00100 (r4)
+* rd: 01010 (r10)
+* Instruction: 0000000 00100 00001 100 01010 0110011
+* Hexadecimal: 0x004081b3
+
+6. SLT r11, r2, r4
+
+* Opcode: 0110011
+* Funct3: 010
+* Funct7: 0000000
+* rs1: 00010 (r2)
+* rs2: 00100 (r4)
+* rd: 01011 (r11)
+* Instruction: 0000000 00100 00010 010 01011 0110011
+* Hexadecimal: 0x004101b3
+
+7. SLL r15, r1, r2
+
+* Opcode: 0110011
+* Funct3: 001
+* Funct7: 0000000
+* rs1: 00001 (r1)
+* rs2: 00010 (r2)
+* rd: 01111 (r15)
+* Instruction: 0000000 00010 00001 001 01111 0110011
+* Hexadecimal: 0x002081b3
+
+### I-Type Instructions
+
+1. ADDI r12, r4, 5
+
+* Opcode: 0010011
+* Funct3: 000
+* Immediate: 000000000101 (5)
+* rs1: 00100 (r4)
+* rd: 01100 (r12)
+* Instruction: 000000000101 00100 000 01100 0010011
+* Hexadecimal: 0x00520293
+
+2. LW r13, r1, 2
+
+* Opcode: 0000011
+* Funct3: 010
+* Immediate: 000000000010 (2)
+* rs1: 00001 (r1)
+* rd: 01101 (r13)
+* Instruction: 000000000010 00001 010 01101 0000011
+* Hexadecimal: 0x00208083
+  
+### S-Type Instructions
+
+1. SW r3, r1, 2
+   
+* Opcode: 0100011
+* Funct3: 010
+* Immediate: 000000000010 (2, split into imm[11:5] and imm[4:0])
+* imm[11:5]: 0000000
+* imm[4:0]: 00010
+* rs1: 00001 (r1)
+* rs2: 00011 (r3)
+* Instruction: 0000000 00011 00001 010 00010 0100011
+* Hexadecimal: 0x00208223
+
+### B-Type Instructions
+
+1. BNE r0, r1, 20
+
+* Opcode: 1100011
+* Funct3: 001
+* Immediate: 0000000000100 (20, split into imm[12], imm[10:5], imm[4:1], and imm[11])
+* imm[12]: 0
+* imm[10:5]: 000001
+* imm[4:1]: 0100
+* imm[11]: 0
+* rs1: 00001 (r1)
+* rs2: 00000 (r0)
+* Instruction: 000001 00000 00001 001 0100 1100011
+* Hexadecimal: 0x01410063
+
+2. BEQ r0, r0, 15
+
+* Opcode: 1100011
+* Funct3: 000
+* Immediate: 0000000000111 (15, split into imm[12], imm[10:5], imm[4:1], and imm[11])
+* imm[12]: 0
+* imm[10:5]: 000001
+* imm[4:1]: 0111
+* imm[11]: 0
+* rs1: 00000 (r0)
+* rs2: 00000 (r0)
+* Instruction: 000001 00000 00000 000 0111 1100011
+* Hexadecimal: 0x00700063
+
