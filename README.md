@@ -376,21 +376,34 @@ Dividing 58 by 4 gives 16 (in hex), which means there are 22 (decimal) instructi
 # TASK-4
 
 ## Identify various RISC-V instruction type (R, I, S, B, U, J) and exact 32-bit instruction code in the instruction type format for below RISC-V instructions 
-ADD r6, r2, r1
-SUB r7, r1, r2
-AND r8, r1, r3
-OR r9, r2, r5
-XOR r10, r1, r4
-SLT r11, r2, r4
-ADDI r12, r4, 5
-SW r3, r1, 2
-SRL r16, r14, r2
-BNE r0, r1, 20
-BEQ r0, r0, 15
-LW r13, r1, 2
-SLL r15, r1, r2
 
-Upload the 32-bit pattern on Github"
+ ADD r6, r2, r1
+
+ SUB r7, r1, r2
+
+ AND r8, r1, r3
+
+ OR r9, r2, r5
+
+ XOR r10, r1, r4
+
+ SLT r11, r2, r4
+
+ ADDI r12, r4, 5
+
+ SW r3, r1, 2
+
+ SRL r16, r14, r2
+
+ BNE r0, r1, 20
+
+ BEQ r0, r0, 15
+
+ LW r13, r1, 2
+
+ SLL r15, r1, r2
+
+ Upload the 32-bit pattern on Github
 
 ## Detailed Explanation of RISC-V Instruction Types:
 
