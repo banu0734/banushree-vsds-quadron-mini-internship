@@ -375,7 +375,7 @@ Dividing 58 by 4 gives 16 (in hex), which means there are 22 (decimal) instructi
 
 # TASK-4
 
-## "Identify various RISC-V instruction type (R, I, S, B, U, J) and exact 32-bit instruction code in the instruction type format for below RISC-V instructions 
+## Identify various RISC-V instruction type (R, I, S, B, U, J) and exact 32-bit instruction code in the instruction type format for below RISC-V instructions 
 ADD r6, r2, r1
 SUB r7, r1, r2
 AND r8, r1, r3
