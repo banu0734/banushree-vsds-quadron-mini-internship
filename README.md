@@ -643,3 +643,142 @@ J-type instructions are used for jump operations.
 * Instruction: 000001 00000 00000 000 0111 1100011
 * Hexadecimal: 0x00700063
 
+# TASK-5
+
+## Step 1: Install Icarus Verilog and GTKWave
+
+![10 7 24-1](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/034f72b0-5801-4a99-adff-704c17d927cf)
+
+1.Open your terminal.
+2.Update your package list to ensure you have the latest information:
+
+    sudo apt-get update
+    
+3.Install Icarus Verilog and GTKWave:
+
+    sudo apt-get install iverilog gtkwave
+    
+## Step 2: Clone the Repository and Download Netlist Files
+
+1.Open your terminal if not already open.
+2.Clone the repository from GitHub:
+
+    git clone https://github.com/vinayrayapati/iiitb_rv32i
+    
+3.Navigate to the newly created directory:
+
+    cd iiitb_rv32i
+    
+## Step 3: Simulate and Run the Verilog Code
+
+1.Open your terminal in the iiitb_rv32i directory.
+2.Compile the Verilog code using Icarus Verilog:
+
+    iverilog -o iiitb_rv32i iiitb_rv32i.v iiitb_rv32i_tb.v
+    
+3.Run the compiled code to generate the simulation output:
+
+    ./iiitb_rv32i
+    
+## Step 4: View the Output Waveform in GTKWave
+
+1.Open your terminal in the iiitb_rv32i directory.
+2.View the generated waveform using GTKWave:
+
+    gtkwave iiitb_rv32i.vcd
+    
+By following these steps, you'll be able to install the necessary tools, clone the required repository, simulate the Verilog code, and view the output waveforms.
+
+## OUTPUT:
+
+### ADD:
+![10 7 24-2](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/a365ce5c-9786-4659-a896-f7cefb2c8f49)
+### ADDI:
+![10 7 24-3](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/f17271ab-116e-4723-98bf-5b954fcc6884)
+### SUB:
+![10 7 24-4](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/843b015a-1b9e-45d4-a810-701207ec9a80)
+### AND:
+![10 7 24-5](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/d9491f15-db8c-4faa-8746-314b08f831cc)
+### OR:
+![10 7 24-6](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/8462a5cc-5c0f-4a79-bd48-2b8f85b19deb)
+### XOR:
+![10 7 24-7](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/17381bc8-91f0-4ac8-8ad5-93afcdf41b02)
+### SLT:
+![10 7 24-8](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/78049ae4-d966-4b39-a486-3b9244d2ad15)
+### BEQ:
+![10 7 24-9](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/f444a703-0382-4e4b-8a35-a555fe554b97)
+
+# TASK-6
+## PROJECT-Ascent Control Engineer: Creating a Smart Elevator Controller.
+## Conceptual Design
+### 1. RISC-V Processor Capabilities:
+
+The RISC-V processor will need the following capabilities:
+
+* I/O Ports: To interact with buttons (floor selection, open/close doors), sensors (floor detection, door status), and the motor.
+* Timers:  For scheduling tasks and managing delays (e.g., waiting for doors to open/close).
+Interrupts: For handling real-time events such as button presses or sensor activations.
+
+### 2. Basic Components:
+* Buttons: To request floors, open/close doors.
+* Sensors: To detect the current floor and door status.
+* Motor Control: To move the elevator up and down.
+* Display: To show the current floor and direction of movement.
+  
+### 3. Elevator Logic:
+* Initialization: When powered on, the elevator should run a self-check and move to a predefined floor (usually the ground floor).
+* Request Handling: When a button is pressed, the system should register the request and prioritize it based on the current direction of movement and the elevator's position.
+* Movement: The motor should be controlled to move the elevator to the requested floors. It should stop at each requested floor, open the doors, wait for a specified time, and then close the doors.
+* Safety: Ensure there are mechanisms to handle errors such as doors not closing, sensor failures, or motor issues.
+## Implementation Outline
+### 1. I/O Management:
+* Button Press: Use GPIO pins to read button states.
+* Sensor Reading: Use GPIO pins to read floor sensors and door status.
+* Motor Control: Use GPIO pins to control motor driver circuits.
+  
+### 2. State Machine:
+
+Design a state machine to manage the elevator’s operation. Typical states include:
+
+* Idle: Waiting for a request.
+* Moving: Elevator is moving to a requested floor.
+* Door Opening/Closing: Handling door operations.
+* Emergency: Handling emergency situations (e.g., power failure, obstruction).
+* 
+### 3. Software Logic (Pseudocode):
+Even though you mentioned no software code, the logical flow can be represented as follows:
+
+```
+initialize_system()
+while true:
+    if new_request:
+        update_request_queue()
+    
+    if current_state == IDLE:
+        if request_queue not empty:
+            set_destination(next_request())
+            current_state = MOVING
+            
+    if current_state == MOVING:
+        move_to_destination()
+        current_state = DOOR_OPENING
+        
+    if current_state == DOOR_OPENING:
+        open_doors()
+        wait(door_open_time)
+        current_state = DOOR_CLOSING
+        
+    if current_state == DOOR_CLOSING:
+        close_doors()
+        if more_requests:
+            current_state = MOVING
+        else:
+            current_state = IDLE
+
+    handle_emergency()
+```
+### 4. Safety and Redundancy:
+
+* Emergency Stop: Implement an emergency stop button and logic.
+* Door Safety: Ensure the doors do not close if an obstruction is detected.
+* Power Failure: Implement a backup power source or safe mode in case of power failure.
