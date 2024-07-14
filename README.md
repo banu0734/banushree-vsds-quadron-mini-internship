@@ -820,6 +820,12 @@ while true:
 * Door Safety: Ensure the doors do not close if an obstruction is detected.
 * Power Failure: Implement a backup power source or safe mode in case of power failure.
 
+</details>
+
+<details>
+<summary>TASK 6-PROJECT IMPLEMENTATION </summary>
+ <br>
+ 
 # TASK-6
 
 ## Detailed Explanation of Smart Elevator Controller with VSDSquadron Mini RISC-5 Kit
