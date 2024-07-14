@@ -1,4 +1,10 @@
 # banushree/[vsdsquadron-mini-internship](https://github.com/banu0734/intern.git)
+</details>
+
+<details>
+<summary>TASK 1</summary>
+ <br>
+    
 # Task-1
 # Opening and writting program in terminal window.
 writing a C programming code to count from 1 to n.
@@ -18,6 +24,12 @@ output:
 ![assignment1-9](https://github.com/banu0734/intern/assets/173624112/40201ba9-d93b-471e-985c-7bc6f4554aee)
 ![assignment1-8](https://github.com/banu0734/intern/assets/173624112/7f70bbb0-8b14-4dd2-a515-24aedec665de)
 
+</details>
+
+<details>
+<summary>TASK 2</summary>
+ <br>
+    
 # Task-2
 # CODE
 
@@ -297,6 +309,13 @@ int main() {
 
 ![task2-10r](https://github.com/banu0734/intern-vsds-quadron-mini-internship/assets/173624112/18aa9ea4-b06c-4eb8-bcc6-08ce800a1dd4)
 
+
+</details>
+
+<details>
+<summary>TASK 3</summary>
+ <br>
+    
 # TASK-3
 
 ## SPIKE Simulation and observation with -O1 and -Ofast. Upload snapshot of compiled C Code, RISC-V Objdmp with above options on your GitHub repo
@@ -373,6 +392,12 @@ More Aggressive Optimizations: The -Ofast option enables more aggressive optimiz
 * If main starts at 100b0, and the next significant block starts at 10108, the difference (10108 - 100b0) is 58 (in hex).
 Dividing 58 by 4 gives 16 (in hex), which means there are 22 (decimal) instructions between these points.
 
+</details>
+
+<details>
+<summary>TASK 4</summary>
+ <br>
+    
 # TASK-4
 
 ## Identify various RISC-V instruction type (R, I, S, B, U, J) and exact 32-bit instruction code in the instruction type format for below RISC-V instructions 
@@ -643,6 +668,12 @@ J-type instructions are used for jump operations.
 * Instruction: 000001 00000 00000 000 0111 1100011
 * Hexadecimal: 0x00700063
 
+</details>
+
+<details>
+<summary>TASK 5</summary>
+ <br>
+    
 # TASK-5
 
 ## Step 1: Install Icarus Verilog and GTKWave
@@ -708,6 +739,12 @@ By following these steps, you'll be able to install the necessary tools, clone t
 ### BEQ:
 ![10 7 24-9](https://github.com/banu0734/banushree-vsds-quadron-mini-internship/assets/173624112/f444a703-0382-4e4b-8a35-a555fe554b97)
 
+</details>
+
+<details>
+<summary>TASK 6</summary>
+ <br>
+    
 # TASK-6
 ## PROJECT-Ascent Control Engineer: Creating a Smart Elevator Controller.
 ## Conceptual Design
@@ -782,3 +819,422 @@ while true:
 * Emergency Stop: Implement an emergency stop button and logic.
 * Door Safety: Ensure the doors do not close if an obstruction is detected.
 * Power Failure: Implement a backup power source or safe mode in case of power failure.
+
+# TASK-6
+
+## Detailed Explanation of Smart Elevator Controller with VSDSquadron Mini RISC-5 Kit
+
+### Overview
+
+The smart elevator controller leverages the VSDSquadron Mini RISC-5 kit to integrate advanced features for improved functionality, safety, efficiency, and user experience. Below is a detailed explanation of the components required and the working of the system.
+
+### Components Required
+
+1. **VSDSquadron Mini**
+   - Core processing unit based on the RISC-V architecture.
+   - Provides computational power and interfacing capabilities.
+
+2. **Sensors**
+   - **Position Sensors**: Encoders to track the elevator's position.
+   - **Load Sensors**: Measure the weight inside the elevator to ensure it is not overloaded.
+   - **Door Sensors**: Monitor the status of the elevator doors (open or closed).
+
+3. **Actuators**
+   - **Motors**: Control the movement of the elevator up and down.
+   - **Relays**: Control the opening and closing of the elevator doors.
+
+4. **User Interface Components**
+   - **Display Panels**: Show the current floor and other relevant information.
+   - **Buttons**: Allow passengers to select their desired floor.
+
+5. **Breadboard and Jumper Wires**
+   - For prototyping and connecting different components.
+
+### Working
+
+#### Floor Selection
+1. **User Interaction**: 
+   - Passengers interact with the elevator through a user interface. This interface can be:
+     - **Inside the Elevator**: Touchscreen, keypad, or button panel.
+     - **Outside the Elevator**: Touchscreen, keypad, or button panel on each floor.
+
+2. **Destination Input**: 
+   - Passengers select their desired floor using the interface.
+   - Additional parameters can be input in some smart elevators, such as:
+     - Indicating if they are in a rush.
+     - Specific accessibility needs.
+
+#### Elevator Operation
+1. **Processing User Input**:
+   - The VSDSquadron Mini processes the input from the user interface.
+   - Determines the optimal route based on the current position, destination, and other parameters.
+
+2. **Monitoring and Control**:
+   - **Position Sensors**: Continuously track the elevator's position and provide feedback to the controller.
+   - **Load Sensors**: Ensure the elevator is not overloaded.
+   - **Door Sensors**: Ensure the doors are properly closed before the elevator moves.
+
+3. **Actuation**:
+   - **Motors**: Controlled to move the elevator to the selected floor.
+   - **Relays**: Operate the doors to open and close at the appropriate times.
+
+4. **User Feedback**:
+   - **Display Panels**: Show the current floor, upcoming stops, and other relevant information to passengers.
+   - **Audio/Visual Alerts**: Inform passengers about elevator arrival, doors opening/closing, and other important notifications.
+
+### Detailed Explanation of Specific Prompts
+
+#### Prompt 1: Floor Selection Process
+**Scenario**: A passenger selects a floor inside the elevator car.
+1. The passenger enters the elevator car and uses the touchscreen interface to select the 5th floor.
+2. The input is registered by the VSDSquadron Mini, which updates the internal queue of requested floors.
+3. The controller checks the current position and decides the most efficient route to the 5th floor.
+4. The elevator starts moving towards the 5th floor while continuously monitoring sensors.
+
+#### Prompt 2: Handling Additional Parameters
+**Scenario**: A passenger with specific accessibility needs uses the elevator.
+1. The passenger selects their desired floor and indicates they need extra time to enter/exit the elevator.
+2. The VSDSquadron Mini processes this input and adjusts the door operation timings.
+3. The elevator provides additional visual and audio cues to assist the passenger.
+
+#### Prompt 3: Safety and Efficiency
+**Scenario**: The elevator is overloaded.
+1. Passengers enter the elevator, and the load sensors detect an overload condition.
+2. The VSDSquadron Mini alerts the passengers through visual and audio cues, indicating that the elevator is overloaded.
+3. The elevator doors remain open, and the elevator does not move until the load is reduced to a safe level.
+
+By integrating these advanced features and technologies, the smart elevator controller enhances the overall functionality, safety, efficiency, and user experience.
+
+### CODE:
+```
+#include <stdint.h>
+#include <stdbool.h>
+
+// Define memory-mapped addresses for GPIO control
+#define GPIO_BASE_ADDR      0x10000000
+#define GPIO_OUTPUT_REG     (*(volatile uint32_t *)(GPIO_BASE_ADDR + 0x00))
+#define GPIO_DIRECTION_REG  (*(volatile uint32_t *)(GPIO_BASE_ADDR + 0x04))
+#define GPIO_INPUT_REG      (*(volatile uint32_t *)(GPIO_BASE_ADDR + 0x08))
+
+// Define GPIO pin assignments for stepper motor control
+#define STEP_PIN            0
+#define DIR_PIN             1
+
+// Define GPIO pin assignments for LCD control (example)
+#define LCD_RS_PIN          2
+#define LCD_EN_PIN          3
+#define LCD_D4_PIN          4
+#define LCD_D5_PIN          5
+#define LCD_D6_PIN          6
+#define LCD_D7_PIN          7
+
+// Define GPIO pin assignments for buttons
+#define BUTTON_FLOOR_1      8
+#define BUTTON_FLOOR_2      9
+#define BUTTON_FLOOR_3      10
+
+// Define GPIO pin assignments for load sensor (example)
+#define LOAD_SENSOR_PIN     11
+
+// Define constants for motor control
+#define STEPS_PER_REV       200   // Number of steps per revolution for the stepper motor
+#define STEPS_PER_FLOOR     (STEPS_PER_REV / 3)
+
+// Define elevator floors
+#define FLOOR_1             0
+#define FLOOR_2             1
+#define FLOOR_3             2
+
+// Global variables
+volatile uint8_t currentFloor = FLOOR_1;
+volatile bool isOverloaded = false;
+
+// Function prototypes
+void initGPIO(void);
+void moveStepperMotor(uint8_t targetFloor);
+void delay(uint32_t milliseconds);  // Function to implement delay
+void checkLoadSensor(void);
+void handleButtonPresses(void);
+void updateLCD(uint8_t floor);
+void lcdCommand(uint8_t command);
+void lcdData(uint8_t data);
+void lcdInit(void);
+
+int main(void) {
+    initGPIO();
+    lcdInit();
+
+    // Main program loop
+    while (1) {
+        handleButtonPresses();
+        checkLoadSensor();
+
+        // Example: Move elevator to the selected floor
+        if (!isOverloaded) {
+            moveStepperMotor(currentFloor);
+        }
+
+        // Small delay to debounce button presses
+        delay(100);
+    }
+
+    return 0;
+}
+
+void initGPIO(void) {
+    // Configure GPIO direction (output for stepper motor control)
+    GPIO_DIRECTION_REG |= (1 << STEP_PIN) | (1 << DIR_PIN);
+
+    // Configure GPIO direction (output for LCD control - example)
+    GPIO_DIRECTION_REG |= (1 << LCD_RS_PIN) | (1 << LCD_EN_PIN) |
+                          (1 << LCD_D4_PIN) | (1 << LCD_D5_PIN) |
+                          (1 << LCD_D6_PIN) | (1 << LCD_D7_PIN);
+
+    // Configure GPIO direction (input for buttons and load sensor)
+    GPIO_DIRECTION_REG &= ~((1 << BUTTON_FLOOR_1) | (1 << BUTTON_FLOOR_2) | (1 << BUTTON_FLOOR_3) | (1 << LOAD_SENSOR_PIN));
+}
+
+void moveStepperMotor(uint8_t targetFloor) {
+    // Calculate steps needed to move to the target floor
+    int8_t stepsToMove = (int8_t)(targetFloor - currentFloor) * STEPS_PER_FLOOR;
+
+    // Determine direction
+    bool direction = (stepsToMove >= 0) ? 1 : 0;
+    stepsToMove = abs(stepsToMove);
+
+    // Set direction pin
+    if (direction) {
+        GPIO_OUTPUT_REG |= (1 << DIR_PIN);  // Set direction pin high for one direction
+    } else {
+        GPIO_OUTPUT_REG &= ~(1 << DIR_PIN); // Set direction pin low for opposite direction
+    }
+
+    // Perform steps
+    for (int i = 0; i < stepsToMove; ++i) {
+        GPIO_OUTPUT_REG |= (1 << STEP_PIN);  // Pulse step pin
+        delay(1);  // Small delay between steps
+        GPIO_OUTPUT_REG &= ~(1 << STEP_PIN);
+        delay(1);  // Small delay between steps
+    }
+
+    // Update current floor
+    currentFloor = targetFloor;
+    updateLCD(currentFloor);
+}
+
+void delay(uint32_t milliseconds) {
+    // Example delay function implementation (depending on your clock speed)
+    volatile uint32_t delay_cycles = milliseconds * 1000;
+    while (delay_cycles--) {
+        asm volatile ("nop");
+    }
+}
+
+void checkLoadSensor(void) {
+    // Read load sensor value
+    isOverloaded = (GPIO_INPUT_REG & (1 << LOAD_SENSOR_PIN)) ? true : false;
+    if (isOverloaded) {
+        // Display overload message on LCD
+        lcdCommand(0x01);  // Clear display
+        lcdData('O');
+        lcdData('V');
+        lcdData('E');
+        lcdData('R');
+        lcdData('L');
+        lcdData('O');
+        lcdData('A');
+        lcdData('D');
+        lcdData(' ');
+    } else {
+        // Display current floor on LCD
+        updateLCD(currentFloor);
+    }
+}
+
+void handleButtonPresses(void) {
+    if (GPIO_INPUT_REG & (1 << BUTTON_FLOOR_1)) {
+        currentFloor = FLOOR_1;
+    } else if (GPIO_INPUT_REG & (1 << BUTTON_FLOOR_2)) {
+        currentFloor = FLOOR_2;
+    } else if (GPIO_INPUT_REG & (1 << BUTTON_FLOOR_3)) {
+        currentFloor = FLOOR_3;
+    }
+}
+
+void updateLCD(uint8_t floor) {
+    lcdCommand(0x01);  // Clear display
+    lcdData('F');
+    lcdData('L');
+    lcdData('O');
+    lcdData('O');
+    lcdData('R');
+    lcdData(' ');
+    lcdData('0' + floor + 1);  // Display floor number (1, 2, or 3)
+}
+
+void lcdCommand(uint8_t command) {
+    GPIO_OUTPUT_REG &= ~(1 << LCD_RS_PIN);  // RS = 0 for command
+    GPIO_OUTPUT_REG |= (1 << LCD_EN_PIN);  // Enable high
+    GPIO_OUTPUT_REG = (GPIO_OUTPUT_REG & 0xFFFFFFF0) | ((command >> 4) & 0x0F);  // Send high nibble
+    GPIO_OUTPUT_REG &= ~(1 << LCD_EN_PIN);  // Enable low
+    delay(1);  // Small delay
+    GPIO_OUTPUT_REG |= (1 << LCD_EN_PIN);  // Enable high
+    GPIO_OUTPUT_REG = (GPIO_OUTPUT_REG & 0xFFFFFFF0) | (command & 0x0F);  // Send low nibble
+    GPIO_OUTPUT_REG &= ~(1 << LCD_EN_PIN);  // Enable low
+    delay(1);  // Small delay
+}
+
+void lcdData(uint8_t data) {
+    GPIO_OUTPUT_REG |= (1 << LCD_RS_PIN);  // RS = 1 for data
+    GPIO_OUTPUT_REG |= (1 << LCD_EN_PIN);  // Enable high
+    GPIO_OUTPUT_REG = (GPIO_OUTPUT_REG & 0xFFFFFFF0) | ((data >> 4) & 0x0F);  // Send high nibble
+    GPIO_OUTPUT_REG &= ~(1 << LCD_EN_PIN);  // Enable low
+    delay(1);  // Small delay
+    GPIO_OUTPUT_REG |= (1 << LCD_EN_PIN);  // Enable high
+    GPIO_OUTPUT_REG = (GPIO_OUTPUT_REG & 0xFFFFFFF0) | (data & 0x0F);  // Send low nibble
+    GPIO_OUTPUT_REG &= ~(1 << LCD_EN_PIN);  // Enable low
+    delay(1);  // Small delay
+}
+
+void lcdInit(void) {
+    // Initialize LCD
+    delay(20);  // Wait for LCD to power up
+    lcdCommand(0x03);  // Wake up
+    delay(5);  // Wait
+    lcdCommand(0x03);  // Wake up
+    delay(1);  // Wait
+    lcdCommand(0x03);  // Wake up
+    delay(1);  // Wait
+    lcdCommand(0x02);  // Set 4-bit mode
+    lcdCommand(0x28);  // Function set: 4-bit mode, 2 lines, 5x8 dots
+    lcdCommand(0x0C);  // Display on, cursor off, blink off
+    lcdCommand(0x06);  // Entry mode set: Increment cursor
+    lcdCommand(0x01);  // Clear display
+    delay(2);  // Wait for clear display
+}
+```
+### Code Explanation
+
+1. **Button Handling**:
+   - The code now includes buttons to select floors.
+   - The `handleButtonPresses` function checks the state of the buttons and updates `currentFloor` accordingly.
+
+2. **Load Sensor**:
+   - The `checkLoadSensor` function reads the load sensor value to determine if the elevator is overloaded.
+   - If overloaded, it displays an overload message on the LCD.
+
+3. **LCD Control**:
+   - Functions `lcdCommand`, `lcdData`, and `lcdInit` are added to handle LCD operations.
+   - The `updateLCD` function updates the LCD display with the current floor or an overload message.
+
+#### Motor Control and Safety
+- The `moveStepperMotor
+
+` function has been modified to include safety checks for the overload condition.
+- The direction and steps for the motor are calculated based on the difference between the current and target floors.
+
+#### Delay Function
+- The `delay` function is a simple implementation using a loop to create a time delay, useful for debouncing and step timing.
+
+## RISC-V PROCESSOR:
+
+![_Detailed Connection Diagram for the RISC-V Processor](https://github.com/user-attachments/assets/377fd71f-5b6b-425b-8a6f-03bb61863018)
+
+
+#### GPIO Pin Assignments
+
+1. **Stepper Motor Control**
+   - **STEP_PIN**: GPIO Pin 0
+   - **DIR_PIN**: GPIO Pin 1
+
+2. **LCD Control**
+   - **LCD_RS_PIN**: GPIO Pin 2
+   - **LCD_EN_PIN**: GPIO Pin 3
+   - **LCD_D4_PIN**: GPIO Pin 4
+   - **LCD_D5_PIN**: GPIO Pin 5
+   - **LCD_D6_PIN**: GPIO Pin 6
+   - **LCD_D7_PIN**: GPIO Pin 7
+
+3. **Button Inputs**
+   - **BUTTON_FLOOR_1**: GPIO Pin 8
+   - **BUTTON_FLOOR_2**: GPIO Pin 9
+   - **BUTTON_FLOOR_3**: GPIO Pin 10
+
+4. **Load Sensor Input**
+   - **LOAD_SENSOR_PIN**: GPIO Pin 11
+
+### Pin Diagram Representation for RISC-V Processor
+
+Here's a detailed pin diagram representation for the RISC-V processor connections based on the given code.
+
+#### Stepper Motor Connections
+
+- **STEP_PIN** (GPIO Pin 0)
+  - Connect this pin to the step input of the stepper motor driver.
+
+- **DIR_PIN** (GPIO Pin 1)
+  - Connect this pin to the direction input of the stepper motor driver.
+
+#### LCD Display Connections
+
+- **LCD_RS_PIN** (GPIO Pin 2)
+  - Connect this pin to the RS pin of the LCD.
+
+- **LCD_EN_PIN** (GPIO Pin 3)
+  - Connect this pin to the EN pin of the LCD.
+
+- **LCD_D4_PIN** (GPIO Pin 4)
+  - Connect this pin to the D4 pin of the LCD.
+
+- **LCD_D5_PIN** (GPIO Pin 5)
+  - Connect this pin to the D5 pin of the LCD.
+
+- **LCD_D6_PIN** (GPIO Pin 6)
+  - Connect this pin to the D6 pin of the LCD.
+
+- **LCD_D7_PIN** (GPIO Pin 7)
+  - Connect this pin to the D7 pin of the LCD.
+
+#### Button Inputs
+
+- **BUTTON_FLOOR_1** (GPIO Pin 8)
+  - Connect one side of a button to this pin and the other side to ground. This button is for selecting Floor 1.
+
+- **BUTTON_FLOOR_2** (GPIO Pin 9)
+  - Connect one side of a button to this pin and the other side to ground. This button is for selecting Floor 2.
+
+- **BUTTON_FLOOR_3** (GPIO Pin 10)
+  - Connect one side of a button to this pin and the other side to ground. This button is for selecting Floor 3.
+
+#### Load Sensor Input
+
+- **LOAD_SENSOR_PIN** (GPIO Pin 11)
+  - Connect the output of the load sensor to this pin.
+
+### Breadboard and Jumper Wires
+
+Using a breadboard and jumper wires, you can create the connections as described above. Ensure that you also connect the ground and power lines appropriately for the LCD, stepper motor driver, and load sensor.
+
+By following this pin diagram and connection guide, you should be able to set up the smart elevator controller system effectively with a RISC-V processor. Ensure to double-check connections for any power and ground requirements specific to your components.
+
+## WORKING:
+
+The smart elevator controller, driven by a RISC-V processor, orchestrates seamless elevator operations through interfacing with essential components: a stepper motor, LCD display, floor selection buttons, and a load sensor. Upon initialization, GPIO pins are configured to manage these components effectively. In its operational loop, the system continuously monitors button inputs for floor selection and checks the load sensor for elevator capacity. When a floor button is pressed and the elevator is not overloaded, the controller calculates and executes the necessary steps using the stepper motor to move the elevator to the desired floor. The LCD display concurrently updates, showing current floor status or an "OVERLOAD" warning if capacity limits are exceeded. Safety is paramount, ensured by real-time load monitoring and controlled motor movements. Overall, this integrated system optimizes elevator functionality, enhances safety, and delivers a user-friendly experience, all orchestrated by the robust capabilities of the RISC-V architecture.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
