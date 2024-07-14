@@ -2,7 +2,7 @@
 </details>
 
 <details>
-<summary>TASK 1</summary>
+<summary><h3>TASK-1</h3></summary>
  <br>
     
 # Task-1
@@ -27,7 +27,7 @@ output:
 </details>
 
 <details>
-<summary>TASK 2</summary>
+<summary><h3>TASK-2</h3></summary>
  <br>
     
 # Task-2
@@ -313,7 +313,7 @@ int main() {
 </details>
 
 <details>
-<summary>TASK 3</summary>
+<summary><h3>TASK-3</h3></summary>
  <br>
     
 # TASK-3
@@ -395,7 +395,7 @@ Dividing 58 by 4 gives 16 (in hex), which means there are 22 (decimal) instructi
 </details>
 
 <details>
-<summary>TASK 4</summary>
+<summary><h3>TASK-4</h3></summary>
  <br>
     
 # TASK-4
@@ -671,7 +671,7 @@ J-type instructions are used for jump operations.
 </details>
 
 <details>
-<summary>TASK 5</summary>
+<summary><h3>TASK-5</h3></summary>
  <br>
     
 # TASK-5
@@ -742,7 +742,7 @@ By following these steps, you'll be able to install the necessary tools, clone t
 </details>
 
 <details>
-<summary>TASK 6</summary>
+<summary><h3>TASK-6</h3></summary>
  <br>
     
 # TASK-6
@@ -823,7 +823,7 @@ while true:
 </details>
 
 <details>
-<summary>TASK 6-PROJECT IMPLEMENTATION </summary>
+<summary><h3>TASK-6 PROJECT IMPLEMENTATION </h3></summary>
  <br>
  
 # TASK-6
