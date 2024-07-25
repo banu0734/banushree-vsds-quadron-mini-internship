@@ -1240,7 +1240,9 @@ Continuous monitoring of button inputs and load sensor data ensures real-time fe
 For maintenance, the controller offers robust diagnostic capabilities, facilitating quick issue resolution and maximizing elevator uptime. Detailed error messages aid maintenance personnel in efficient troubleshooting.
 
 In summary, the smart elevator controller, driven by RISC-V architecture, sets new standards in efficiency, safety, and user satisfaction. It exemplifies the seamless integration of cutting-edge technology and reliable control strategies, transforming elevator operations for enhanced reliability and comfort.
+## APPLICATION VIDEO
 
+[Video link](]https://drive.google.com/file/d/1rO-zFbGAdPxKwu6IkBQuqgg95My-7HjM/view?t=3)
 
 
 
